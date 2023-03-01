@@ -55,9 +55,10 @@ Connect agents to master with ssh or cli
 
 
 ## Pipeline stages
-- 
 - Provision Lambda function and Upload artifact to S3 with Terraform
+  - `terraform apply -f lmabda_s3/main.tf -auto-approve`
 - Connection API gateway and Lambda with Terraform
+  - `terraform apply -f api_gateway/main.tf -auto-approve`  
 
 
 
