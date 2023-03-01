@@ -18,9 +18,15 @@ pipeline {
      stage('build2') {
             agent { label 'agent2t2' }
             steps {
-                sh "ls"
-               // sh "terraform init"
-               // sh "terraform apply --auto-approve"
+                
+              dir('api_gateway/') {
+                    sh "ls"
+                    sh "terraform init"
+                    sh "terraform apply -auto-approve"
+                    //sh "chmod +x ./terraformw"
+                    //sh './terraformw apply -auto-approve -no-color'
+                    
+    }
                
             }
         }
