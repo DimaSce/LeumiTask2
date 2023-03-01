@@ -5,8 +5,7 @@ pipeline {
             agent { label 'agent1t2' }
             steps {
                 dir('lambda_s3/') {
-                    sh "terraform init"
-                    sh "terraform apply --auto-approve"
+                    sh './terraformw apply -auto-approve -no-color'
                     
     }
                
