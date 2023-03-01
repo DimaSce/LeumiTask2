@@ -6,8 +6,10 @@ pipeline {
             steps {
                 dir('lambda_s3/') {
                     sh "ls"
-                    sh "chmod +x ./terraformw"
-                    sh './terraformw apply -auto-approve -no-color'
+                    sh "terraform init"
+                    sh "terraform apply -auto-approve"
+                    //sh "chmod +x ./terraformw"
+                    //sh './terraformw apply -auto-approve -no-color'
                     
     }
                
