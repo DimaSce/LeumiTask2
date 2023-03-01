@@ -1,4 +1,3 @@
-
 # Lambda Fucntion with API_Gateway with Terraform and Jenkins
 
 ##Overview
