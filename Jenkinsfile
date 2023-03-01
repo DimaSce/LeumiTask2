@@ -5,7 +5,7 @@ pipeline {
             agent { label 'agent1t2' }
             steps {
                 dir('lambda_s3/') {
-                    sh "chmod +x terraformw"
+                    sh "chmod +x ./terraformw"
                     sh 'terraformw apply -auto-approve -no-color'
                     
     }
