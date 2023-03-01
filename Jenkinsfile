@@ -15,6 +15,7 @@ pipeline {
      stage('build2') {
             agent { label 'agent2t2' }
             steps {
+                sh "ls"
                // sh "terraform init"
                // sh "terraform apply --auto-approve"
                
