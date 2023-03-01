@@ -7,7 +7,7 @@ pipeline {
                 dir('lambda_s3/') {
                     sh "ls"
                     sh "chmod +x ./terraformw"
-                    sh 'terraformw apply -auto-approve -no-color'
+                    sh './terraformw apply -auto-approve -no-color'
                     
     }
                
