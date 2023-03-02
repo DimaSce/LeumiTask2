@@ -23,6 +23,7 @@ pipeline {
                     sh "ls"
                     sh "rm hello-world.zip"
                     unstash 'myzip' 
+                    sh "ls"
                     sh "terraform init"
                     sh "terraform apply -auto-approve"
                     //sh "chmod +x ./terraformw"
