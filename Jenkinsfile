@@ -16,7 +16,7 @@ pipeline {
                
             }
         }
-        stage('build1') {
+        stage('Create Lambda Function and S3') {
             agent { label 'agent1t2' }
             steps {
                 dir('lambda_s3/') {
@@ -33,7 +33,7 @@ pipeline {
                
             }
         }
-     stage('build2') {
+     stage('Integrate API gateway with lambda') {
             agent { label 'agent2t2' }
             steps {
                 
