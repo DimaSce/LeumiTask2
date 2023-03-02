@@ -7,9 +7,4 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
-variable "outfile" {
-  description = "zip file path"
 
-  type    = string
-  default = "${path.module}/hello-world.zip"
-}
