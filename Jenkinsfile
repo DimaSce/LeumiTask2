@@ -1,11 +1,27 @@
 pipeline {
     agent none
     stages {
+        stage('zip file') {
+            agent { label 'agent2t2' }
+            steps {
+                dir('lambda_s3/hello-world/') {
+                    sh "zip hello-world.zip hello.js"
+                    stash includes: 'hello-world.zip', name:'myzip'
+                    //sh "terraform init"
+                    //sh "terraform apply -auto-approve"
+                    //sh "chmod +x ./terraformw"
+                    //sh './terraformw apply -auto-approve -no-color'
+                    
+    }
+               
+            }
+        }
         stage('build1') {
             agent { label 'agent1t2' }
             steps {
                 dir('lambda_s3/') {
                     sh "ls"
+                    unstash 'myzip' 
                     sh "terraform init"
                     sh "terraform apply -auto-approve"
                     //sh "chmod +x ./terraformw"
