@@ -25,7 +25,7 @@ resource "aws_s3_bucket_acl" "bucket_acl" {
 
 locals {
   zip_file_path = "${path.module}/hello-world.zip"
-  zip_file_base64sha256 = base64sha256(file("${local.zip_file_path}"))
+  zip_file_base64sha256 = filesha256("${local.zip_file_path}")
 }
 
 /*
