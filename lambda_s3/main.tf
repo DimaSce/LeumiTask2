@@ -22,6 +22,12 @@ resource "aws_s3_bucket_acl" "bucket_acl" {
   bucket = aws_s3_bucket.lambda_bucket.id
   acl    = "private"
 }
+
+locals {
+  zip_file_path = "${path.module}/hello-world.zip"
+  zip_file_base64sha256 = base64sha256(file("${local.zip_file_path}"))
+}
+
 /*
 variable "outfile" {
   description = "zip file path"
@@ -41,9 +47,9 @@ resource "aws_s3_object" "lambda_hello_world" {
   bucket = aws_s3_bucket.lambda_bucket.id
 
   key    = "hello-world.zip"
-  source = "${path.module}/hello-world.zip"
+  source = local.zip_file_path
 
-  etag = filemd5("${path.module}/hello-world.zip")
+  etag = filemd5(local.zip_file_path)
 }
 
 
@@ -55,8 +61,8 @@ resource "aws_lambda_function" "hello_world" {
 
   runtime = "nodejs12.x"
   handler = "hello.handler"
-
-  //source_code_hash = var.out + _base64sha256
+  //outf = "${path.module}/hello-world.zip" 
+  source_code_hash = local.zip_file_base64sha256
 
   role = aws_iam_role.lambda_exec.arn
 }
