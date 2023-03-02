@@ -1,6 +1,6 @@
 # Lambda Fucntion with API_Gateway with Terraform and Jenkins
 
-##Overview
+## Overview
 Project involves creating a serverless architecture using AWS Lambda and API Gateway. Creation a Lambda function to perform some data processing tasks and then connect it to an API Gateway endpoint to make it accessible over the web.S3 bucket to store files.
 
 ## Components
