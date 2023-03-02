@@ -10,7 +10,7 @@ provider "aws" {
 }
 
 resource "random_pet" "lambda_bucket_name" {
-  prefix = "my_lambda_functions"
+  prefix = "my-lambda-functions"
   length = 4
 }
 
