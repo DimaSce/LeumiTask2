@@ -22,13 +22,14 @@ resource "aws_s3_bucket_acl" "bucket_acl" {
   bucket = aws_s3_bucket.lambda_bucket.id
   acl    = "private"
 }
+/*
 variable "outfile" {
   description = "zip file path"
 
   type    = string
   default = "${path.module}/hello-world.zip"
 }
-
+*/
 //data "archive_file" "lambda_hello_world" {
   //type = "zip"
 
@@ -40,9 +41,9 @@ resource "aws_s3_object" "lambda_hello_world" {
   bucket = aws_s3_bucket.lambda_bucket.id
 
   key    = "hello-world.zip"
-  source = var.outfile
+  source = "${path.module}/hello-world.zip"
 
-  etag = filemd5(var.outfile)
+  etag = filemd5("${path.module}/hello-world.zip")
 }
 
 
