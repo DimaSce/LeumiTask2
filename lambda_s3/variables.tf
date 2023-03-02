@@ -7,7 +7,7 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
-variable "out" {
+variable "outfile" {
   description = "zip file path"
 
   type    = string
