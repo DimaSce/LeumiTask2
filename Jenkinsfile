@@ -4,7 +4,7 @@ pipeline {
         stage('zip file') {
             agent { label 'agent2t2' }
             steps {
-                dir('lambda_s3/hello-world/') {
+                dir('hello-world/') {
                     sh "zip hello-world.zip hello.js"
                     stash includes: 'hello-world.zip', name:'myzip'
                     //sh "terraform init"

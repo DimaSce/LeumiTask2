@@ -3,7 +3,7 @@
 module.exports.handler = async (event) => {
   console.log('Event: ', event);
 
-  let responseMessage = 'for you message';
+  let responseMessage = 'Check  message';
 
 
   return {
