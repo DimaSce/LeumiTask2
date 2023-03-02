@@ -21,6 +21,7 @@ pipeline {
             steps {
                 dir('lambda_s3/') {
                     sh "ls"
+                    sh "rm hello-world.zip"
                     unstash 'myzip' 
                     sh "terraform init"
                     sh "terraform apply -auto-approve"
