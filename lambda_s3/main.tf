@@ -28,20 +28,7 @@ locals {
   zip_file_base64sha256 = filesha256("${local.zip_file_path}")
 }
 
-/*
-variable "outfile" {
-  description = "zip file path"
 
-  type    = string
-  default = "${path.module}/hello-world.zip"
-}
-*/
-//data "archive_file" "lambda_hello_world" {
-  //type = "zip"
-
-  //source_dir  = "${path.module}/hello-world"
- // output_path = "${path.module}/hello-world.zip"
-//}
 
 resource "aws_s3_object" "lambda_hello_world" {
   bucket = aws_s3_bucket.lambda_bucket.id
