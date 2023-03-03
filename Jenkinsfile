@@ -30,6 +30,7 @@ pipeline {
             agent { label 'agent2t2' }
             steps {
               dir('terraform/') {
+                    unstash 'myzip'
                     sh "terraform init -input=false"
                     sh "terraform apply -target=aws_apigatewayv2_api.lambda -target=aws_apigatewayv2_stage.lambda -target=aws_apigatewayv2_integration.hello_world -target=aws_apigatewayv2_route.hello_world -target=aws_cloudwatch_log_group.api_gw -target=aws_lambda_permission.api_gw -auto-approve"
                     
