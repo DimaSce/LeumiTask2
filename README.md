@@ -30,26 +30,7 @@ Dependencies for agents:java,terraform,awscli
 Install kubectl 
 
 Connect agents to master with ssh or cli
-## Terraform api gateway discriprion
-- aws_api_gateway_rest_api: Defines the REST API and gives it a name.
-- aws_api_gateway_resource: Defines a resource for the REST API with the path ".
-- aws_api_gateway_method: Defines a method for the resource using the HTTP GET method with no authorization.
-- aws_api_gateway_integration: Specifies the integration between the API Gateway and the Lambda function, which is invoked using the AWS_PROXY integration type and a URI constructed from the Lambda ARN.
-- aws_lambda_permission: Grants permission to the API Gateway to invoke the Lambda function using the ARN of the REST API as the source ARN.
-- aws_api_gateway_method_response: Defines the method response for the GET method with a 200 status code.
-- aws_api_gateway_integration_response: Defines the integration response for the GET method with a 200 status code.
-- aws_api_gateway_deployment: Deploys the API to a stage called "prod".
 
-## Terraform configuration file deploys an AWS Lambda function discription
-
-  - provider: Sets up the AWS provider and specifies the region where the resources will be created.
-  - random_pet: Generates a random name to be used for the S3 bucket where the Lambda function's code will be stored.
-  - aws_s3_bucket: Creates an S3 bucket to store the Lambda function's code.
-  - data "archive_file" : Archives the directory and creates a zip file.
-  - aws_s3_object "lambda_hello_world": Uploads the zip file to the S3 bucket.
-  - aws_iam_role: Creates an IAM role that the Lambda function can assume.
-  - aws_iam_role_policy_attachment: Attaches the AWSLambdaBasicExecutionRole policy to the IAM role, which grants the function basic execution permissions.
-  - aws_lambda_function: Creates the Lambda function itself, using the uploaded code from the S3 bucket.
   
 
 
